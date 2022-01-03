@@ -3,13 +3,25 @@ package com.upcake.hellospring.service;
 import com.upcake.hellospring.domain.Member;
 import com.upcake.hellospring.repository.MemberRepository;
 import com.upcake.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
-
+/*
+    //테스트에서 같은 repository를 사용하기 위해 new를 하지 않고 Dependency Injection, DI를 해준다.
     private final MemberRepository memberRepository = new MemoryMemberRepository();
+*/
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
 
     /**
      * 회원 가입
