@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public class MemberService {
 /*
     //테스트에서 같은 repository를 사용하기 위해 new를 하지 않고 Dependency Injection, DI를 해준다.
@@ -17,7 +16,6 @@ public class MemberService {
 */
     private final MemberRepository memberRepository;
 
-    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
