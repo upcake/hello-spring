@@ -5,10 +5,15 @@ import com.upcake.hellospring.repository.MemberRepository;
 import com.upcake.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+//JPA를 사용하려면 Transactional이 있어야 한다.
+//join에서만 필요한데 일단은 여기다 붙여준다.
+//JPA는 join들어올때  모든 데이터 변경이 전부 트랜잭션안에서 실행된다
+@Transactional
 public class MemberService {
 /*
     //테스트에서 같은 repository를 사용하기 위해 new를 하지 않고 Dependency Injection, DI를 해준다.
